@@ -1,8 +1,13 @@
+import prisma from "@/lib/database";
 
-export default function Home() {
-  return (
-    
-    <h1 className="text-red-500">Hello World</h1>
+export default async function Home() {
+  const users= await prisma.user.findMany();
+  return (   
+    <code>
+      {
+        JSON.stringify(users)
+      }
+    </code>
   );
 }
 
